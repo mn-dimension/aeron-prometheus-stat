@@ -214,6 +214,7 @@ public class PrometheusAeronStat {
         String smallLabel = label.replaceAll(" ", "_").toLowerCase();
         Counter prometheusCounter;
         if (prometheusCounterMap.get(smallLabel) == null) {
+            System.out.println("Small label is: " + smallLabel);
             prometheusCounter = Counter.build().name(smallLabel).help(Integer.toString(typeId)).register();
             prometheusCounterMap.put(smallLabel, prometheusCounter);
         } else {
