@@ -211,7 +211,7 @@ public class PrometheusAeronStat {
 
 
     public void updateSystemCounter(CountersReader cr, int counterId, int typeId, String label) {
-        String smallLabel = label.replaceAll(" ", "_").toLowerCase();
+        String smallLabel = label.replaceAll(" ", "_").toLowerCase().split(",")[0];
         Counter prometheusCounter;
         if (prometheusCounterMap.get(smallLabel) == null) {
             System.out.println("Small label is: " + smallLabel);
